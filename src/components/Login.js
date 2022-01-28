@@ -3,10 +3,9 @@ import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
-// Setting values in here for testing purposes
 const initialState = {
-	username: 'Lambda',
-	password: 'School',
+	username: '',
+	password: '',
 };
 
 const initialError = '';
