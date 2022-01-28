@@ -1,8 +1,21 @@
-import React from "react";
-import { Route } from "react-router-dom";
+import React from 'react';
+import { Route, Redirect } from 'react-router-dom';
 
-function PrivateRoute() {
-  return (<Route/>);
+function PrivateRoute(props) {
+	const { component: Component, ...rest } = props;
+	return (
+		<Route
+			{...rest}
+			render={() => {
+				if (localStorage.getItem('token')) {
+					return <Component />;
+				} else {
+					// console.log('Access Denied');
+					return <Redirect to="/" />;
+				}
+			}}
+		/>
+	);
 }
 
 export default PrivateRoute;
