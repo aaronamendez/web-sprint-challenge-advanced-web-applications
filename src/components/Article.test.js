@@ -25,7 +25,9 @@ test('renders headline, author from the article when passed in through props', (
 test('renders "Associated Press" when no author is given', () => {
 	render(<Article article={[]} handleDelete={[]} handleEditSelect={[]} />);
 
-	expect();
+	const author = screen.getByTestId(/author/i);
+
+	expect(author).toBeInTheDocument(/by associated press/i);
 });
 
 test('executes handleDelete when the delete button is pressed', () => {});
